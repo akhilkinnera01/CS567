@@ -1,0 +1,19 @@
+# Import the maze module from maze.py
+import sys
+sys.path.append('/Users/akhilkinnera/Downloads/maze3/maze.py')
+import maze
+
+# Define pools of values
+pool: <maze> 1
+pool: <int> 2
+
+# Assign a fixed size for the maze
+<int> := 10
+
+# Define actions
+<maze> := maze.create_maze(<int>, <int>)
+<maze> := maze.mutate_maze(<maze>)
+
+# Define properties
+property: len(<maze>) == 10 and len(<maze>[0]) == 10
+property: all(cell in ['path', 'wall'] for row in <maze> for cell in row)
